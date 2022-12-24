@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager managerInstance;
-    private bool isOnLevel1, isOnLevel2, isOnLevel3, isOnLevel4, isOnLevel5, areControllsEnabled;
+    public bool isOnLevel1, isOnLevel2, isOnLevel3, isOnLevel4, isOnLevel5, areControllsEnabled;
 
     // Start is called before the first frame update
     void Start()

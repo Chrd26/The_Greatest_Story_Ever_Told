@@ -8,6 +8,7 @@ public class BookTopAnimationManager : MonoBehaviour
     private Animation openBookAnim;
     public GameObject startButton;
     public Animation spineBookOpen;
+    public GameObject page2Button;
 
     // Start is called before the first frame update
     void Start()
@@ -16,11 +17,6 @@ public class BookTopAnimationManager : MonoBehaviour
         openBookAnim = GetComponent<Animation>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     //Play Animation Function
     public void PlayOpenBookAnimation() {
@@ -28,5 +24,6 @@ public class BookTopAnimationManager : MonoBehaviour
         openBookAnim.Play("BookTopAnim");
         spineBookOpen.Play("BookSpineOpeningAnim");
         startButton.SetActive(false);
+        page2Button.SetActive(true);
     }
 }
