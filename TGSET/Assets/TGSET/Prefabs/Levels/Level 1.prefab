@@ -345,7 +345,7 @@ MonoBehaviour:
   - {fileID: 4331266137329793300}
   - {fileID: 375466615762965902}
   m_Bounds:
-    m_Center: {x: -1.1759509, y: -0.07955718, z: 0}
+    m_Center: {x: -1.2301162, y: -0.079747915, z: 0}
     m_Extent: {x: 1.3957714, y: 3.092451, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -374,7 +374,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2297712337020702709}
   m_LocalRotation: {x: -0, y: -0, z: -0.60425705, w: 0.79678947}
-  m_LocalPosition: {x: -2.02, y: 2.9073186, z: 0}
+  m_LocalPosition: {x: -2.0741653, y: 2.9071279, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -498,6 +498,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6065202588527054580}
+  - component: {fileID: 4272429875499513573}
+  - component: {fileID: 859479403351379837}
+  - component: {fileID: 3989299163245113045}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -524,6 +527,56 @@ Transform:
   m_Father: {fileID: 3983632267469564699}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4272429875499513573
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689667568795641750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1cef3eeb1554947949b0c9f34219334f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+--- !u!143 &859479403351379837
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689667568795641750}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3989299163245113045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3689667568795641750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffb71f5a39e4241d19df3584684341ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3983632267469564696
 GameObject:
   m_ObjectHideFlags: 0
