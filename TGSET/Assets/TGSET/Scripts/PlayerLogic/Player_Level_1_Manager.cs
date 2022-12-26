@@ -10,47 +10,20 @@ public class Player_Level_1_Manager : MonoBehaviour
     void Start()
     {
         playerAnimations = GetComponent<Animator>();
+        playerAnimations.SetTrigger("FrontWalkAnim");
     }
 
     // Update is called once per frame
     void Update()
     {
-        PlayWalkAnimationSide();
+        AnimationManager();
     }
 
-    private void PlayWalkAnimationSide() {
-        
-        if (Input.GetKey(KeyCode.A))
-        {
-            playerAnimations.SetTrigger("Right Side Walk Animation Trigger");
-            playerAnimations.ResetTrigger("Side Idle Animation Trigger");
-            playerAnimations.ResetTrigger("Left Side Walk Animation Trigger");
-
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-
-            playerAnimations.SetTrigger("Left Side Walk Animation Trigger");
-            playerAnimations.ResetTrigger("Side Idle Animation Trigger");
-            playerAnimations.ResetTrigger("Right Side Walk Animation Trigger");
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            playerAnimations.ResetTrigger("Right Side Walk Animation Trigger");
-            playerAnimations.SetTrigger("Side Idle Animation Trigger");
-
-        }
-        else if (Input.GetKeyUp(KeyCode.D))
-        {
-
-            playerAnimations.ResetTrigger("Left Side Walk Animation Trigger");
-            playerAnimations.SetTrigger("Side Idle Animation Trigger");
-
-        }
-
+    private void AnimationManager()
+    {
 
     }
+
+
 
 }
