@@ -12,7 +12,7 @@ public class Player_Level_1_Manager : MonoBehaviour
     void Start()
     {
         playerAnimations = GetComponent<Animator>();
-        speed = 10.0f;
+        speed = 0.1f;
     }
 
     // Update is called once per frame
