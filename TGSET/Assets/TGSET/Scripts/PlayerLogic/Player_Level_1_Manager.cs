@@ -8,6 +8,7 @@ public class Player_Level_1_Manager : MonoBehaviour
     private float speed;
 
     // Start is called before the first frame update
+
     void Start()
     {
         playerAnimations = GetComponent<Animator>();
@@ -15,6 +16,7 @@ public class Player_Level_1_Manager : MonoBehaviour
     }
 
     // Update is called once per frame
+
     void Update()
     {
         AnimationManager();
@@ -25,17 +27,41 @@ public class Player_Level_1_Manager : MonoBehaviour
 
     private void AnimationManager()
     {
+        //Start Movement Animations
+
         if (Input.GetKey(KeyCode.D))
         {
             PlayWalkLeftSideAnimation();
             StopIdleLeftSideAnimation();
+            StopWalkFrontAnimation();
+            StopWalkBackAnimation();
         }
         else if (Input.GetKey(KeyCode.A))
         {
             PlayWalkRightSideAnimation();
             StopIdleRightSideAnimation();
+            StopWalkFrontAnimation();
+            StopWalkBackAnimation();
         }
-        
+        else if (Input.GetKey(KeyCode.S))
+        {
+            PlayWalkFrontAnimation();
+            StopIdleFrontAnimation();
+            StopWalkLeftSideAnimation();
+            StopWalkRightSideAnimation();
+            StopWalkBackAnimation();
+        }
+        else if (Input.GetKey(KeyCode.W))
+        {
+            PlayWalkBackAnimation();
+            StopIdleFrontAnimation();
+            StopIdleRightSideAnimation();
+            StopIdleLeftSideAnimation();
+            StopIdleBackAnimation();
+        }
+
+        //Stop Movement Animations
+
         if (Input.GetKeyUp(KeyCode.D))
         {
             if (!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
@@ -52,7 +78,38 @@ public class Player_Level_1_Manager : MonoBehaviour
                 StopWalkRightSideAnimation();
             }
         }
-        
+        else if (Input.GetKeyUp(KeyCode.S))
+        {
+            if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.W))
+            {
+                PlayIdleFrontAnimation();
+                StopWalkFrontAnimation();
+            }
+        }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            if (!Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.S))
+            {
+                PlayIdleBackAnimation();
+                StopWalkBackAnimation();
+            }
+        }
+
+        if (Input.GetButtonDown("Freeze Time"))
+        {
+            PlaySpellBackAnimation();
+            PlaySpellFrontAnimation();
+            PlaySpellRightSideAnimation();
+            PlaySpellLeftSideAnimation();
+        }
+
+        if (Input.GetButtonUp("Freeze Time"))
+        {
+            StopSpellBackAnimation();
+            StopSpellFrontAnimation();
+            StopSpellLeftSideAnimation();
+            StopSpellRightSideAnimation();
+        }
     }
 
     //Left Side Animations Functions
@@ -60,6 +117,9 @@ public class Player_Level_1_Manager : MonoBehaviour
     private void PlayWalkLeftSideAnimation()
     {
         playerAnimations.SetTrigger("WalkLeftAnim");
+        playerAnimations.ResetTrigger("WalkRightAnim");
+        playerAnimations.ResetTrigger("FrontWalkAnim");
+        playerAnimations.ResetTrigger("BackWalkAnim");
     }
 
     private void PlayIdleLeftSideAnimation()
@@ -70,7 +130,6 @@ public class Player_Level_1_Manager : MonoBehaviour
     private void PlaySpellLeftSideAnimation()
     {
         playerAnimations.SetTrigger("SpellLeftAnim");
-        playerAnimations.ResetTrigger("WalkRightAnim");
     }
 
     private void StopWalkLeftSideAnimation()
@@ -83,10 +142,12 @@ public class Player_Level_1_Manager : MonoBehaviour
         playerAnimations.ResetTrigger("IdleLeftAnim");
     }
 
-    private void StopAttackLeftSideAnimation()
+    private void StopSpellLeftSideAnimation()
     {
         playerAnimations.ResetTrigger("SpellLeftAnim");
+        PlayIdleLeftSideAnimation();
     }
+
 
     //Right Side Animations Functions
 
@@ -94,6 +155,8 @@ public class Player_Level_1_Manager : MonoBehaviour
     {
         playerAnimations.SetTrigger("WalkRightAnim");
         playerAnimations.ResetTrigger("WalkLeftAnim");
+        playerAnimations.ResetTrigger("FrontWalkAnim");
+        playerAnimations.ResetTrigger("BackWalkAnim");
     }
 
     private void PlayIdleRightSideAnimation()
@@ -116,11 +179,84 @@ public class Player_Level_1_Manager : MonoBehaviour
         playerAnimations.ResetTrigger("IdleRightAnim");
     }
 
-    private void StopAttackrightSideAnimation()
+    private void StopSpellRightSideAnimation()
     {
         playerAnimations.ResetTrigger("SpellRightAnim");
+        PlayIdleRightSideAnimation();
     }
 
+
+    // Front Side Animations Functions
+
+    private void PlayWalkFrontAnimation()
+    {
+        playerAnimations.SetTrigger("FrontWalkAnim");
+        playerAnimations.ResetTrigger("WalkLeftAnim");
+        playerAnimations.ResetTrigger("WalkRightAnim");
+        playerAnimations.ResetTrigger("BackWalkAnim");
+    }
+
+    private void PlayIdleFrontAnimation()
+    {
+        playerAnimations.SetTrigger("FrontIdleAnim");
+    }
+
+    private void PlaySpellFrontAnimation()
+    {
+        playerAnimations.SetTrigger("FrontSpellAnim");
+    }
+
+    private void StopWalkFrontAnimation()
+    {
+        playerAnimations.ResetTrigger("FrontWalkAnim");
+    }
+
+    private void StopIdleFrontAnimation()
+    {
+        playerAnimations.ResetTrigger("FrontIdleAnim");
+    }
+
+    private void StopSpellFrontAnimation()
+    {
+        playerAnimations.ResetTrigger("FrontSpellAnim");
+        PlayIdleFrontAnimation();
+    }
+
+    // Back Side Animations Functions
+
+    private void PlayWalkBackAnimation()
+    {
+        playerAnimations.SetTrigger("BackWalkAnim");
+        playerAnimations.ResetTrigger("FrontWalkAnim");
+        playerAnimations.ResetTrigger("WalkLeftAnim");
+        playerAnimations.ResetTrigger("WalkRightAnim");
+    }
+
+    private void PlayIdleBackAnimation()
+    {
+        playerAnimations.SetTrigger("BackIdleAnim");
+    }
+
+    private void PlaySpellBackAnimation()
+    {
+        playerAnimations.SetTrigger("BackSpellAnim");
+    }
+
+    private void StopWalkBackAnimation()
+    {
+        playerAnimations.ResetTrigger("BackWalkAnim");
+    }
+
+    private void StopIdleBackAnimation()
+    {
+        playerAnimations.ResetTrigger("BackIdleAnim");
+    }
+
+    private void StopSpellBackAnimation()
+    {
+        playerAnimations.ResetTrigger("BackSpellAnim");
+        PlayIdleBackAnimation();
+    }
 
     private void movement()
     {
