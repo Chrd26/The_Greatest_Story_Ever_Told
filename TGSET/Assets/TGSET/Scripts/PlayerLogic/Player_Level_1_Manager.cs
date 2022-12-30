@@ -19,13 +19,13 @@ public class Player_Level_1_Manager : MonoBehaviour
 
     void Update()
     {
-        AnimationManager();
+        MovementAnimationManager();
         movement();
     }
 
     //Manage Animations Based on Key Pressess
 
-    private void AnimationManager()
+    private void MovementAnimationManager()
     {
         //Start Movement Animations
 
@@ -93,22 +93,6 @@ public class Player_Level_1_Manager : MonoBehaviour
                 PlayIdleBackAnimation();
                 StopWalkBackAnimation();
             }
-        }
-
-        if (Input.GetButtonDown("Freeze Time"))
-        {
-            PlaySpellBackAnimation();
-            PlaySpellFrontAnimation();
-            PlaySpellRightSideAnimation();
-            PlaySpellLeftSideAnimation();
-        }
-
-        if (Input.GetButtonUp("Freeze Time"))
-        {
-            StopSpellBackAnimation();
-            StopSpellFrontAnimation();
-            StopSpellLeftSideAnimation();
-            StopSpellRightSideAnimation();
         }
     }
 
@@ -261,6 +245,29 @@ public class Player_Level_1_Manager : MonoBehaviour
     private void movement()
     {
         transform.Translate(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0);
+    }
+
+    private void CastFreezeTime()
+    {
+        if (GameManager.managerInstance.isFreezeTimeAvailable)
+        {
+
+            if (Input.GetButtonDown("Freeze Time"))
+            {
+                PlaySpellBackAnimation();
+                PlaySpellFrontAnimation();
+                PlaySpellRightSideAnimation();
+                PlaySpellLeftSideAnimation();
+            }
+
+            if (Input.GetButtonUp("Freeze Time"))
+            {
+                StopSpellBackAnimation();
+                StopSpellFrontAnimation();
+                StopSpellLeftSideAnimation();
+                StopSpellRightSideAnimation();
+            }
+        }
     }
 
 
