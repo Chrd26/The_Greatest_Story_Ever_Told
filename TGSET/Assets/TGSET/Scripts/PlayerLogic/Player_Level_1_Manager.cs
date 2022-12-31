@@ -6,6 +6,9 @@ public class Player_Level_1_Manager : MonoBehaviour
 {
     private Animator playerAnimations;
     private float speed;
+    public AudioSource footsteps;
+    public AudioSource castSpell;
+    public AudioSource undoSpell;
 
     // Start is called before the first frame update
 
@@ -23,8 +26,8 @@ public class Player_Level_1_Manager : MonoBehaviour
         {
             MovementAnimationManager();
             movement();
+            CastFreezeTime();
         }
-        CastFreezeTime();
     }
 
     //Manage Animations Based on Key Pressess
@@ -263,6 +266,16 @@ public class Player_Level_1_Manager : MonoBehaviour
                 PlaySpellFrontAnimation();
                 PlaySpellRightSideAnimation();
                 PlaySpellLeftSideAnimation();
+                if (!GameManager.managerInstance.isFreezeTimeCasted)
+                {
+                    castSpell.pitch = Random.Range(0.9f, 1.1f);
+                    castSpell.Play();
+                }
+                else
+                {
+                    undoSpell.pitch = Random.Range(0.9f, 1.1f);
+                    undoSpell.Play();
+                }
             }
 
             if (Input.GetButtonUp("Freeze Time"))
@@ -273,6 +286,12 @@ public class Player_Level_1_Manager : MonoBehaviour
                 StopSpellRightSideAnimation();
             }
         }
+    }
+
+    public void PlayFootsteps()
+    {
+        footsteps.pitch = Random.Range(0.9f, 1.1f);
+        footsteps.Play();
     }
 
 

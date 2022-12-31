@@ -26,6 +26,5 @@ public class ParticleManager : MonoBehaviour
             particle.Play();
             material.SetColor("_EmissiveColor", Color.yellow * 100);
         }
-        
     }
 }

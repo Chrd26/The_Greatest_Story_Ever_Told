@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class FootstepsSoundsManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public AudioClip[] footsteps;
+    private float countdown = 0;
+    private int randomNumber;
+    private AudioSource source;
+
+    private void Awake()
     {
-        
+        source = GetComponent<AudioSource>();
+        randomNumber = Random.Range(0, 5);
+        source.clip = footsteps[randomNumber];
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (countdown < 1)
+        {
+            countdown += 1 * Time.deltaTime;
+        }
+        else
+        {
+            randomNumber = Random.Range(0, 5);
+            source.clip = footsteps[randomNumber];
+        }
     }
 }

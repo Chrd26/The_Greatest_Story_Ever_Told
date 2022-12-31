@@ -9,6 +9,7 @@ public class BookTopAnimationManager : MonoBehaviour
     public GameObject startButton;
     public Animation spineBookOpen;
     public GameObject page2Button;
+    public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -25,5 +26,11 @@ public class BookTopAnimationManager : MonoBehaviour
         spineBookOpen.Play("BookSpineOpeningAnim");
         startButton.SetActive(false);
         page2Button.SetActive(true);
+    }
+
+    public void PlayBookOpeningSound()
+    {
+        source.Play();
+        source.pitch = Random.Range(0.9f, 1.1f);
     }
 }

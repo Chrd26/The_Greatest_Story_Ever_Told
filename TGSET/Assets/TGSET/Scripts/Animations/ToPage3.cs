@@ -12,6 +12,7 @@ public class ToPage3 : MonoBehaviour
         {
             GameManager.managerInstance.isOnLevel1 = false;
             GameManager.managerInstance.hasExitedLevel1 = true;
+            GameManager.managerInstance.isonLevel = false;
             nextPageAnim.Play();
 
             if (GameManager.managerInstance.isFreezeTimeCasted)

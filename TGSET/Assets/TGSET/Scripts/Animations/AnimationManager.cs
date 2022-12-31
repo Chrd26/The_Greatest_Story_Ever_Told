@@ -5,6 +5,8 @@ using UnityEngine;
 public class AnimationManager : MonoBehaviour
 {
     private Animator anim;
+    public AudioSource open;
+    public AudioSource close;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +22,28 @@ public class AnimationManager : MonoBehaviour
         if (!GameManager.managerInstance.isFreezeTimeCasted && GameManager.managerInstance.isFreezeTimeAvailable)
         {
             anim.StopPlayback();
-            Debug.Log("Play Anim");
         }
         else if ((GameManager.managerInstance.isFreezeTimeCasted && GameManager.managerInstance.isFreezeTimeAvailable))
         {
             anim.StartPlayback();
-            Debug.Log("Stop Anim");
+        }
+    }
+
+    public void DoorOpenSound()
+    {
+        if (GameManager.managerInstance.isOnLevel1)
+        {
+            open.pitch = Random.Range(0.9f, 1.1f);
+            open.Play();
+        }
+    }
+
+    public void DoorCloseSound()
+    {
+        if (GameManager.managerInstance.isOnLevel1)
+        {
+            close.pitch = Random.Range(0.9f, 1.1f);
+            close.Play();
         }
     }
 }

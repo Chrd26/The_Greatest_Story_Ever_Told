@@ -5,6 +5,7 @@ using UnityEngine;
 public class BridgeAnimationManager : MonoBehaviour
 {
     private Animation bridgeAnim;
+    public AudioSource source;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +28,17 @@ public class BridgeAnimationManager : MonoBehaviour
             if (!bridgeAnim.isActiveAndEnabled)
             {
                 bridgeAnim.enabled = true;
-                //bridgeAnim.Play();
             }
         }
         
+    }
+
+    public void PlayBridgeSound()
+    {
+        if (GameManager.managerInstance.isOnLevel1)
+        {
+            source.pitch = Random.Range(0.9f, 1.1f);
+            source.Play();
+        }
     }
 }
