@@ -19,8 +19,12 @@ public class Player_Level_1_Manager : MonoBehaviour
 
     void Update()
     {
-        MovementAnimationManager();
-        movement();
+        if (GameManager.managerInstance.isOnLevel1)
+        {
+            MovementAnimationManager();
+            movement();
+        }
+        CastFreezeTime();
     }
 
     //Manage Animations Based on Key Pressess
@@ -244,7 +248,7 @@ public class Player_Level_1_Manager : MonoBehaviour
 
     private void movement()
     {
-        transform.Translate(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0);
+            transform.Translate(Input.GetAxis("Horizontal") * speed, Input.GetAxis("Vertical") * speed, 0);
     }
 
     private void CastFreezeTime()
@@ -254,6 +258,7 @@ public class Player_Level_1_Manager : MonoBehaviour
 
             if (Input.GetButtonDown("Freeze Time"))
             {
+                GameManager.managerInstance.isFreezeTimeCasted = !GameManager.managerInstance.isFreezeTimeCasted;
                 PlaySpellBackAnimation();
                 PlaySpellFrontAnimation();
                 PlaySpellRightSideAnimation();

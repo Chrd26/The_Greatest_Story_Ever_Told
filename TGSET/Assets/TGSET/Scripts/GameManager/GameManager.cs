@@ -5,19 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager managerInstance;
-    public bool isOnLevel1, isOnLevel2, isOnLevel3, isOnLevel4, isOnLevel5, areControllsEnabled, isFreezeTimeAvailable;
+    public bool isOnLevel1, isFreezeTimeAvailable, isFreezeTimeCasted;
 
     // Start is called before the first frame update
     void Start()
     {
         //Initialize Defaults
-        isOnLevel1 = false;
-        isOnLevel2 = false;
-        isOnLevel3 = false;
-        isOnLevel4 = false;
-        isOnLevel5 = false;
-        areControllsEnabled = false;
         isFreezeTimeAvailable = false;
+        isFreezeTimeCasted = false;
+        isOnLevel1 = false;
 
         //Set the instance of the managerInstance to this
         if (managerInstance == null)
