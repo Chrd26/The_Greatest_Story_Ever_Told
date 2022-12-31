@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager managerInstance;
-    public bool isOnLevel1, isFreezeTimeAvailable, isFreezeTimeCasted;
+    public bool isOnLevel1, hasExitedLevel1, isFreezeTimeAvailable, isFreezeTimeCasted;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         isFreezeTimeAvailable = false;
         isFreezeTimeCasted = false;
         isOnLevel1 = false;
+        hasExitedLevel1 = false;
 
         //Set the instance of the managerInstance to this
         if (managerInstance == null)

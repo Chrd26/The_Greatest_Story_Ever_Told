@@ -168,6 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b08ea94ae6b2490f9b22a1419b462f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particle: {fileID: 811358211}
+  material: {fileID: 2100000, guid: d7c0c0bcd0adb4683b44ba3fa0c253a8, type: 2}
 --- !u!1 &302289834
 GameObject:
   m_ObjectHideFlags: 0
@@ -7307,6 +7309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isOnLevel1: 0
+  hasExitedLevel1: 0
   isFreezeTimeAvailable: 0
   isFreezeTimeCasted: 0
 --- !u!1 &2059815890

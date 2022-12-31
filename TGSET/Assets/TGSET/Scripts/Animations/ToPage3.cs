@@ -11,7 +11,13 @@ public class ToPage3 : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameManager.managerInstance.isOnLevel1 = false;
+            GameManager.managerInstance.hasExitedLevel1 = true;
             nextPageAnim.Play();
+
+            if (GameManager.managerInstance.isFreezeTimeCasted)
+            {
+                GameManager.managerInstance.isFreezeTimeCasted = false;
+            }
         }
     }
 
