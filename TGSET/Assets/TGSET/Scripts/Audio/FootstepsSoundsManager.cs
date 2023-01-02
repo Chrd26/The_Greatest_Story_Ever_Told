@@ -25,8 +25,11 @@ public class FootstepsSoundsManager : MonoBehaviour
         }
         else
         {
-            randomNumber = Random.Range(0, 5);
-            source.clip = footsteps[randomNumber];
+            if (!source.isPlaying)
+            {
+                randomNumber = Random.Range(0, 5);
+                source.clip = footsteps[randomNumber];
+            }
         }
     }
 }

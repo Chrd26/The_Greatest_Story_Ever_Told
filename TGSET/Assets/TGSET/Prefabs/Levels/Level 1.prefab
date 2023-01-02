@@ -1421,10 +1421,10 @@ MonoBehaviour:
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
-  taaSharpenStrength: 0.5
-  TAAQuality: 1
-  taaHistorySharpening: 0.35
-  taaAntiFlicker: 0.5
+  taaSharpenStrength: 2
+  TAAQuality: 2
+  taaHistorySharpening: 0
+  taaAntiFlicker: 0
   taaMotionVectorRejection: 0
   taaAntiHistoryRinging: 0
   taaBaseBlendFactor: 0.875
@@ -21290,8 +21290,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3.05}
-  m_Size: {x: 2.88, y: 3.62}
+  m_Offset: {x: 0, y: -3.5}
+  m_Size: {x: 2.88, y: 2.04}
   m_Direction: 0
 --- !u!50 &2255391836601562906
 Rigidbody2D:

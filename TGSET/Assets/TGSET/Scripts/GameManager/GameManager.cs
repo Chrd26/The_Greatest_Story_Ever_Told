@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
         isOnLevel1 = false;
         isonLevel = false;
         hasExitedLevel1 = false;
+        Screen.SetResolution(1920, 1080, FullScreenMode.Windowed);
 
         //Set the instance of the managerInstance to this
         if (managerInstance == null)

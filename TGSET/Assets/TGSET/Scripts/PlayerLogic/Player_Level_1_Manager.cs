@@ -259,7 +259,7 @@ public class Player_Level_1_Manager : MonoBehaviour
         if (GameManager.managerInstance.isFreezeTimeAvailable)
         {
 
-            if (Input.GetButtonDown("Freeze Time"))
+            if (Input.GetButtonDown("Time Freeze"))
             {
                 GameManager.managerInstance.isFreezeTimeCasted = !GameManager.managerInstance.isFreezeTimeCasted;
                 PlaySpellBackAnimation();
@@ -278,7 +278,7 @@ public class Player_Level_1_Manager : MonoBehaviour
                 }
             }
 
-            if (Input.GetButtonUp("Freeze Time"))
+            if (Input.GetButtonUp("Time Freeze"))
             {
                 StopSpellBackAnimation();
                 StopSpellFrontAnimation();
